@@ -3,10 +3,9 @@
     if(!isset($_SESSION['u_id']))
         header("Location: index.php");
     $contestid = $_GET['contest'];
+    include "assets/php/dbtemplate.php";
     $contestid = mysqli_real_escape_string ( $conn ,$contestid );
     $contestid = stripslashes($contestid);
-    //$contestid = mysqli_escape_string($contestid);
-    include "assets/php/dbtemplate.php";
     $sql = "SELECT p_id,probname,maxmark from problemlist where c_id = $contestid";
     $sql2 = "SELECT contestname from contests where c_id = $contestid";
     $result = $conn->query($sql2);

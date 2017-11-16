@@ -3,10 +3,9 @@
     if(!isset($_SESSION['u_id']))
         header("Location: index.php");
     $challengeid = $_GET['challenge'];
+    include "assets/php/dbtemplate.php";
     $challengeid = mysqli_real_escape_string ( $conn ,$challengeid );
     $challengeid = stripslashes($challengeid);
-    //$challengeid = mysqli_escape_string($challengeid);
-    $conn = mysqli_connect('localhost','root','','db_codecritic');
     $sql = "SELECT probname,probdesc from problemlist where p_id = $challengeid";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
