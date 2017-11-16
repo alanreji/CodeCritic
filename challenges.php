@@ -3,6 +3,7 @@
     if(!isset($_SESSION['u_id']))
         header("Location: index.php");
     $contestid = $_GET['contest'];
+    $contestid = mysqli_real_escape_string ( $conn ,$contestid );
     $contestid = stripslashes($contestid);
     //$contestid = mysqli_escape_string($contestid);
     include "assets/php/dbtemplate.php";

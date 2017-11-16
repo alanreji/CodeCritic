@@ -11,6 +11,11 @@
         $password = $_POST['password'];
         $firstname = $_POST['firstname'];
         $lastname = $_POST['lastname'];
+        $email = mysqli_real_escape_string ( $conn ,$email );
+        $username = mysqli_real_escape_string ( $conn ,$username );
+        $password = mysqli_real_escape_string ( $conn ,$password );
+        $firstname = mysqli_real_escape_string ( $conn ,$firstname );
+        $lastname = mysqli_real_escape_string ( $conn ,$lastname );
         $firstname = stripslashes($firstname);
         $lastname = stripslashes($lastname);
         $email = stripslashes($email);

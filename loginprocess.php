@@ -7,7 +7,9 @@
         $flag=0;
         include "assets/php/dbtemplate.php";
         $email = $_POST['email'];
+        $email = mysqli_real_escape_string ( $conn ,$email );
         $password = $_POST['password'];
+        $password = mysqli_real_escape_string ( $conn ,$password );
         $email = stripslashes($email);
         $password = stripslashes($password);
         if(!$conn)

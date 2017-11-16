@@ -3,6 +3,7 @@
     if(!isset($_SESSION['u_id']))
         header("Location: index.php");
     $challengeid = $_GET['challenge'];
+    $challengeid = mysqli_real_escape_string ( $conn ,$challengeid );
     $challengeid = stripslashes($challengeid);
     //$challengeid = mysqli_escape_string($challengeid);
     $conn = mysqli_connect('localhost','root','','db_codecritic');
