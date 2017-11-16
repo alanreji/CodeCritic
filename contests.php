@@ -2,7 +2,7 @@
     session_start();
     if(!isset($_SESSION['u_id']))
         header("Location: index.php");
-    $conn = mysqli_connect('localhost','root','','db_codecritic');
+        include "assets/php/dbtemplate.php";
     $sql = "SELECT * from contests";
     $result = $conn->query($sql);
 ?>

@@ -42,11 +42,10 @@
                             <label for="exampleInputPassword1">Password</label>
                             <input type="password" name="password" class="form-control" id="password" placeholder="Password" required>
                         </div>
-                        <div class="loginmsg" id="loginmsg">
-                        </div>
+                        <div class="loginmsg" id="loginmsg"></div>
                         <button type="submit" name="submit" class="btn btn-primary">Sign in</button>
                         <div class="indtext">
-                            <a href="">Create an account</a>
+                            <a href="signup.php">Create an account</a>
                         </div>
                     </form>
                 </div>
@@ -62,20 +61,19 @@
                     var email = $('#email').val();
                     var password = $('#password').val();
                     $.post('loginprocess.php', {'email': email, 'password': password}, function(gog) {
-                        console.log(gog);
                         var msg = '';
                         if(gog == '-2')
                             msg = 'Operation failed - Contact admin';
                         else if(gog == '-1')
                             msg = 'Email not found';
-                        else if(gog == 0)
+                        else if(gog == '0')
                             msg = 'Incorrect password';
                         else
                             window.location.replace("contests.php");
                         $("#loginmsg").html(msg);
                     });
                 });
-            });   
+            });
         </script>
     </body>
 </html>
